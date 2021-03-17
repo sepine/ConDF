@@ -35,4 +35,4 @@ python-weka-wrapper3
 
 import-java
 
-*You also should install WEKA toolkit and add the files in directory ````jar/```` to your classpath.
+**You also should install WEKA toolkit and add the files in directory ````jar/```` to your classpath because we implement the Con method with WEKA toolkit.
