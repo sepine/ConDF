@@ -4,7 +4,7 @@
 import csv
 from collections import OrderedDict
 import time
-from experiment.utils.pre_data import read_xlsx, split_dataset
+from pre_data import read_xlsx
 
 import numpy as np
 
@@ -25,36 +25,50 @@ def loadCsv(path):
 def loadCodec():
     df = read_xlsx(f + 'codec/codec.xlsx')
     return df
+    #x_train, x_test = split_dataset(df)
+    #return x_train, x_test
 
 
 def loadCollections():
     df = read_xlsx(f + 'collections/collections.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 def loadIo():
     df = read_xlsx(f + 'io/io.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 def loadJsoup():
     df = read_xlsx(f + 'jsoup/jsoup.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 def loadJsqlparser():
     df = read_xlsx(f + 'jsqlparser/jsqlparser.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 def loadMango():
     df = read_xlsx(f + 'mango/mango.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 def loadOrmlite():
     df = read_xlsx(f + 'ormlite/ormlite.xlsx')
     return df
+    # x_train, x_test = split_dataset(df)
+    # return x_train, x_test
 
 
 d = OrderedDict()

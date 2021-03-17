@@ -58,11 +58,41 @@ def F_negative(Ytest, Ytest_pred):
     return F_negative
 
 
+def G_measure(Ytest, Ytest_pred):
+    TN, FP, FN, TP = get_metrics(Ytest, Ytest_pred)
+    recall = TP / (TP + FN)
+    pd = pf = FP / (FP + TN)
+    G_measure = 2 * recall * (1 - pf) / (recall + (1 - pf))
+    return G_measure
+
+
+def G_mean(Ytest, Ytest_pred):
+    TN, FP, FN, TP = get_metrics(Ytest, Ytest_pred)
+    recall = TP / (TP + FN)
+    specificity = TN / (TN + FP)
+    G_mean = np.sqrt(recall * specificity)
+    return G_mean
+
+
+def Bal(Ytest, Ytest_pred):
+    TN, FP, FN, TP = get_metrics(Ytest, Ytest_pred)
+    pd = recall = TP / (TP + FN)
+    pf = FP / (FP + TN)
+    Bal = 1 - np.sqrt(pf**2 + (1 - pd)**2) / np.sqrt(2)
+    return Bal
+
+
 def MCC(Ytest, Ytest_pred):
     TN, FP, FN, TP = get_metrics(Ytest, Ytest_pred)
     mcc = np.array([TP + FN, TP + FP, FN + TN, FP + TN]).prod()
     MCC = (TP * TN - FN * FP) / np.sqrt(mcc)
     return MCC
+
+
+def get_F2(Ytest, Ytest_pred):
+    TN, FP, FN, TP = get_metrics(Ytest, Ytest_pred)
+    F2 = harmonic_mean(Precision(TP, FP), Recall(TP, FN), 2)
+    return F2
 
 
 def AUC(Ytest, Ytest_pred):
